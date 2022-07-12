@@ -80,21 +80,21 @@ int ganhador(supertrunfo Jogador1[24], supertrunfo Jogador2[24], int habilidade)
                 else if(Jogador1[0].forca<Jogador2[0].forca)
                     return 2;
                 else
-                    return 0;
+                    return 3;
             case 2:
                 if(Jogador1[0].velocidade>Jogador2[0].velocidade)
                     return 1;
                 else if(Jogador1[0].velocidade<Jogador2[0].velocidade)
                     return 2;
                 else
-                    return 0;
+                    return 3;
             case 3:
                 if(Jogador1[0].inteligencia>Jogador2[0].inteligencia)
                     return 1;
                 else if(Jogador1[0].inteligencia<Jogador2[0].inteligencia)
                     return 2;
                 else
-                    return 0;
+                    return 3;
         }
     }else{
         if(Jogador1[0].supertrunfo==1){
@@ -113,30 +113,51 @@ int ganhador(supertrunfo Jogador1[24], supertrunfo Jogador2[24], int habilidade)
     }
 }
 
-void sistema(supertrunfo Jogador1[24], supertrunfo Jogador2[24], supertrunfo mesa[24]){
-    
+int fim_mesa;
+int fim_jogador1;
+int fim_jogador2;
+
+void sistema(supertrunfo Jogador1[24], supertrunfo Jogador2[24], supertrunfo mesa[24], int ganhou){
+    int i;
+    mesa[fim_mesa]=Jogador1[0];
+    fim_mesa++;
+    mesa[fim_mesa]=Jogador2[0];
+    fim_mesa++;
+    for (i = 0; i < 24; i++) {
+        Jogador1[i]=Jogador1[i+1];
+        Jogador2[i]=Jogador2[i+1];
+    }
+    fim_jogador1--;
+    fim_jogador2--;
+    switch(ganhou){
+        case 1:
+            for (i = 0; i < fim_mesa; i++) {
+                Jogador1[fim_jogador1]=mesa[i];
+                fim_jogador1++;
+            }
+            fim_mesa=0;
+            break;
+        case 2:
+            for (i = 0; i < fim_mesa; i++) {
+                Jogador2[fim_jogador2]=mesa[i];
+                fim_jogador2++;
+            }
+            fim_mesa=0;
+            break;
+    }
 }
 
 void tela(supertrunfo Jogador1[24], supertrunfo Jogador2[24], int habilidade, int proximo, int ganhou){
     printf("     Jogador 1                                      Jogador 2     \n");
     switch(habilidade){
         case 1:
-            if(proximo==1)
-                printf("       FORCA                                                      \n");
-            else
-                printf("                                                      FORCA       \n");
+            printf("                              FORCA                               \n");;
             break;
         case 2:
-            if(proximo==1)
-                printf("    VELOCIDADE                                                    \n");
-            else
-                printf("                                                   VELOCIDADE     \n");
+            printf("                            VELOCIDADE                            \n");
             break;
         case 3:
-            if(proximo==1)
-                printf("   INTELIGENCIA                                                   \n");
-            else
-                printf("                                                  INTELIGENCIA    \n");
+            printf("                           INTELIGENCIA                           \n");
             break;
     }
     for (int i = 0; i < 19; i++)
@@ -145,6 +166,14 @@ void tela(supertrunfo Jogador1[24], supertrunfo Jogador2[24], int habilidade, in
     for (int i = 0; i < 19; i++)
         printf("%c", Jogador2[0].nome[i]);
     printf("\n");
+    if(Jogador1[0].supertrunfo==1 || Jogador2[0].supertrunfo==1){
+        if(Jogador1[0].supertrunfo==1)
+            printf("    SUPER-TRUNFO                                 Categoria:      %c\n", Jogador1[0].categoria);
+        else
+            printf(" Categoria:      %c                                  SUPER-TRUNFO   \n", Jogador2[0].categoria);
+    }else{
+        printf(" Categoria:      %c                               Categoria:      %c\n", Jogador1[0].categoria, Jogador2[0].categoria);
+    }
     printf(" Forca:          %d                               Forca:          %d\n", Jogador1[0].forca, Jogador2[0].forca);
     printf(" Velocidade:     %d                               Velocidade:     %d\n", Jogador1[0].velocidade, Jogador2[0].velocidade);
     printf(" Inteligencia:   %d                               Inteligencia:   %d\n", Jogador1[0].inteligencia, Jogador2[0].inteligencia);
@@ -154,4 +183,5 @@ void tela(supertrunfo Jogador1[24], supertrunfo Jogador2[24], int habilidade, in
         printf("                    Jogador 2 Ganhou a rodada!                    \n");
     else
         printf("                         Empatou a rodada!                        \n");
+    printf("Fim mesa: %d\tfim_jogador1: %d\tfim_jogador2:%d\t\n", fim_mesa, fim_jogador1, fim_jogador2);
 }
