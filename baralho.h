@@ -1,4 +1,4 @@
-struct supertrunfo{
+struct supertrunfo{                                         //Criação de um tipo de dado expecífico para receber o baralho.
     int id;
     char nome[30];
     int supertrunfo;
@@ -6,11 +6,11 @@ struct supertrunfo{
     int velocidade;
     int inteligencia;
     char categoria;
-}trunfo[24];
+}trunfo[24];                                                //Variável global que recebe todas as cartas do baralho.
 
-typedef struct supertrunfo supertrunfo;
+typedef struct supertrunfo supertrunfo;                     //Renomeação do tipo de dado.
 
-void inserir_baralho(){
+void inserir_baralho(){                                     //Responável por inserir o baralho na função principal.
     trunfo[0].id=1;
     strcpy(trunfo[0].nome, "   Homem de Ferro    ");
     trunfo[0].supertrunfo=1;
