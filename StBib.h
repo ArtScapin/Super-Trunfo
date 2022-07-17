@@ -24,21 +24,21 @@ int sorteio_inicial(){
     int a, b, c;
     a = (rand()%5)+1;
     b = (rand()%5)+1;
-    c = (rand()%5)+1;
-    if(c%2==0){
+    c = (rand()%2);
+    if(c==0){
             printf("     Jogador 1                                      Jogador 2     \n");
             printf("        PAR                                           IMPAR       \n\n");
     }else{
             printf("     Jogador 1                                      Jogador 2     \n");
-            printf("        PAR                                           IMPAR       \n\n");
+            printf("       IMPAR                                           PAR        \n\n");
     }
-            printf("         %d                     +                        %d         \n", a, b);
+            printf("         %d                                              %d         \n", a, b);
             if((a+b)%2==0)
                 printf("                             PAR!!                                  \n\n");
             else    
                 printf("                            IMPAR!!                                  \n\n");
     if((a+b)%2==0){
-        if(c%2==0){
+        if(c==0){
             printf("                       Jogador 1 Comecara!                        \n");
             return 1;
         }else{
@@ -46,11 +46,11 @@ int sorteio_inicial(){
             return 2;
         }
     }else{
-        if(c%2==0){
-            printf("                       Jogador 2 Comecara!                        \n");
+        if(c==1){
+            printf("                       Jogador 1 Comecara!                        \n");
             return 2;
         }else{
-            printf("                       Jogador 1 Comecara!                        \n");
+            printf("                       Jogador 2 Comecara!                        \n");
             return 1;
         }
     }  
@@ -150,7 +150,7 @@ void sistema(supertrunfo Jogador1[24], supertrunfo Jogador2[24], supertrunfo mes
     }
 }
 
-void tela(supertrunfo Jogador1[24], supertrunfo Jogador2[24], int habilidade, int proximo, int ganhou){
+void tela(supertrunfo Jogador1[24], supertrunfo Jogador2[24], supertrunfo mesa[24], int habilidade, int proximo, int ganhou){
     printf("     Jogador 1                                      Jogador 2     \n");
     switch(habilidade){
         case 1:
@@ -171,20 +171,30 @@ void tela(supertrunfo Jogador1[24], supertrunfo Jogador2[24], int habilidade, in
     printf("\n");
     if(Jogador1[0].supertrunfo==1 || Jogador2[0].supertrunfo==1){
         if(Jogador1[0].supertrunfo==1)
-            printf("    SUPER-TRUNFO                                 Categoria:      %c\n", Jogador1[0].categoria);
+            printf("    SUPER-TRUNFO                                 Categoria:      %c\n", Jogador2[0].categoria);
         else
-            printf(" Categoria:      %c                                  SUPER-TRUNFO   \n", Jogador2[0].categoria);
+            printf(" Categoria:      %c                                  SUPER-TRUNFO   \n", Jogador1[0].categoria);
     }else{
         printf(" Categoria:      %c                               Categoria:      %c\n", Jogador1[0].categoria, Jogador2[0].categoria);
     }
     printf(" Forca:          %d                               Forca:          %d\n", Jogador1[0].forca, Jogador2[0].forca);
     printf(" Velocidade:     %d                               Velocidade:     %d\n", Jogador1[0].velocidade, Jogador2[0].velocidade);
-    printf(" Inteligencia:   %d                               Inteligencia:   %d\n", Jogador1[0].inteligencia, Jogador2[0].inteligencia);
+    printf(" Inteligencia:   %d                               Inteligencia:   %d\n\n", Jogador1[0].inteligencia, Jogador2[0].inteligencia);
     if(ganhou==1)
         printf("                    Jogador 1 Ganhou a rodada!                    \n");
     else if(ganhou==2)
         printf("                    Jogador 2 Ganhou a rodada!                    \n");
     else
         printf("                         Empatou a rodada!                        \n");
-    printf("Fim mesa: %d\tfim_jogador1: %d\tfim_jogador2:%d\t\n", fim_mesa, fim_jogador1, fim_jogador2);
+    sistema(Jogador1, Jogador2, mesa, ganhou);
+    printf("\n    Cartas: ");
+    if(fim_jogador1<10)
+        printf("0");
+    printf("%d          Cartas na mesa: ", fim_jogador1);
+    if(fim_mesa<10)
+        printf("0");
+    printf("%d          Cartas: ", fim_mesa);
+    if(fim_jogador2<10)
+        printf("0");
+    printf("%d    \n", fim_jogador2);
 }
