@@ -33,7 +33,10 @@ int sorteio_inicial(){
             printf("        PAR                                           IMPAR       \n\n");
     }
             printf("         %d                     +                        %d         \n", a, b);
-            printf("                               %d                                  \n\n", a+b);
+            if((a+b)%2==0)
+                printf("                             PAR!!                                  \n\n");
+            else    
+                printf("                            IMPAR!!                                  \n\n");
     if((a+b)%2==0){
         if(c%2==0){
             printf("                       Jogador 1 Comecara!                        \n");
