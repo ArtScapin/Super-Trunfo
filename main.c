@@ -21,25 +21,24 @@ int main()
     inserir_baralho();
     embaralhar(10);
     distribuir(Jogador1, Jogador2);
-    proximo = sorteio_inicial();
-    printf("\n\n\n\n");
+    proximo = sorteio_inicial(); //Armazena na variável proximo de acordo com o sorteio qual é o proximo jogador a jogar, 1 ou 2;
+    printf("\n\n\n\n");          //Nivela a mensagem "Pressione Enter para continuar..."
     do{
-        printf("\n\nPressione Enter para continuar...");
+        printf("\nPressione Enter para continuar...");
         getchar();
         system("clear");
-        habilidade = escolher_habilidade(proximo, Jogador1, Jogador2);
-        ganhou = ganhador(Jogador1, Jogador2, habilidade);
+        habilidade = escolher_habilidade(proximo, Jogador1[0], Jogador2[0]);
+        ganhou = ganhador(Jogador1[0], Jogador2[0], habilidade);
         tela(Jogador1, Jogador2, mesa, habilidade, proximo, ganhou);
-        if(ganhou==1 || ganhou==2)
-            proximo=ganhou;
-        else
-            proximo=ganhou-proximo;
-    }while(fim_jogador1!=24 && fim_jogador2!=24);
-    system("clear");
-    if(fim_jogador1==24)
-        printf("Parabens Jogador 1, voce foi o grande VENCEDOR!!!!");
+        if(ganhou==1 || ganhou==2)  //  Define quem será o proximo a jogar, caso o jogador 1 ou 2 
+            proximo=ganhou;         //ganhe, o mesmo escolherá a habilidade na proxima rodada, mas 
+        else                        //em caso de empate, o ultimo ganhador passa a vez, pois em  
+            proximo=ganhou-proximo; //caso de empate ganhou vale 3 e 3-2=1 ou 3-1=2.
+    }while(fim_jogador1!=0 && fim_jogador2!=0);
+    if(fim_jogador1!=0)
+        printf("\n\nParabens Jogador 1, voce foi o grande VENCEDOR!!!!");
     else
-        printf("Parabens Jogador 2, voce foi o grande VENCEDOR!!!!");
+        printf("\n\nParabens Jogador 2, voce foi o grande VENCEDOR!!!!");
     
     return 0;
 }
