@@ -1,0 +1,11 @@
+As cartas possuem 3 características:
+-Força;
+-Velocidade;
+-Inteligência.
+E podem variar de 0 a 6.
+
+O baralho foi baseado em um baralho já existente feito pelo designer Bruno Costa, que fez o jogo baseado nos personagens do Universo Marvel Studios nos cinemas. Portanto, são personagens de Homem de Ferro 1 e 2, O Incrivel Hulk, Thor, Capitão América e Os Vingadores.
+
+O jogo não é oficial. Os personagens são de propriedade da Marvel/Disney.
+
+Fonte: https://cinemacomrapadura.com.br/colunas/256779/que-tal-jogar-o-super-trunfo-de-os-vingadores-faca-o-download/
