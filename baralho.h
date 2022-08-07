@@ -92,7 +92,7 @@ void inserir_baralho(){                                     //Responável por in
     trunfo[9].categoria='B';
     
     trunfo[10].id=11;
-    strcpy(trunfo[10].nome, "   Bruce Banner    ");
+    strcpy(trunfo[10].nome, "    Bruce Banner   ");
     trunfo[10].supertrunfo=0;
     trunfo[10].forca=1;
     trunfo[10].velocidade=1;
@@ -108,7 +108,7 @@ void inserir_baralho(){                                     //Responável por in
     trunfo[11].categoria='B';
     
     trunfo[12].id=13;
-    strcpy(trunfo[12].nome, "  Gigante de Gelo  ");
+    strcpy(trunfo[12].nome, "   Gigante de Gelo ");
     trunfo[12].supertrunfo=0;
     trunfo[12].forca=4;
     trunfo[12].velocidade=3;
@@ -124,7 +124,7 @@ void inserir_baralho(){                                     //Responável por in
     trunfo[13].categoria='C';
     
     trunfo[14].id=15;
-    strcpy(trunfo[14].nome, "     Heimdall      ");
+    strcpy(trunfo[14].nome, "      Heimdall     ");
     trunfo[14].supertrunfo=0;
     trunfo[14].forca=4;
     trunfo[14].velocidade=3;
@@ -132,7 +132,7 @@ void inserir_baralho(){                                     //Responável por in
     trunfo[14].categoria='C';
     
     trunfo[15].id=16;
-    strcpy(trunfo[15].nome, " Maquina de Guerra ");
+    strcpy(trunfo[15].nome, "  Maquina de Guerra");
     trunfo[15].supertrunfo=0;
     trunfo[15].forca=5;
     trunfo[15].velocidade=5;
@@ -156,7 +156,7 @@ void inserir_baralho(){                                     //Responável por in
     trunfo[17].categoria='C';
     
     trunfo[18].id=19;
-    strcpy(trunfo[18].nome, "    Destruidor     ");
+    strcpy(trunfo[18].nome, "     Destruidor    ");
     trunfo[18].supertrunfo=0;
     trunfo[18].forca=6;
     trunfo[18].velocidade=4;
@@ -164,7 +164,7 @@ void inserir_baralho(){                                     //Responável por in
     trunfo[18].categoria='D';
     
     trunfo[19].id=20;
-    strcpy(trunfo[19].nome, " Caveira Vermelha  ");
+    strcpy(trunfo[19].nome, "  Caveira Vermelha ");
     trunfo[19].supertrunfo=0;
     trunfo[19].forca=3;
     trunfo[19].velocidade=2;
@@ -180,7 +180,7 @@ void inserir_baralho(){                                     //Responável por in
     trunfo[20].categoria='D';
     
     trunfo[21].id=22;
-    strcpy(trunfo[21].nome, "   Chicote Negro   ");
+    strcpy(trunfo[21].nome, "    Chicote Negro  ");
     trunfo[21].supertrunfo=0;
     trunfo[21].forca=2;
     trunfo[21].velocidade=2;
@@ -188,7 +188,7 @@ void inserir_baralho(){                                     //Responável por in
     trunfo[21].categoria='D';
     
     trunfo[22].id=23;
-    strcpy(trunfo[22].nome, "  Monge de Ferro   ");
+    strcpy(trunfo[22].nome, "   Monge de Ferro  ");
     trunfo[22].supertrunfo=0;
     trunfo[22].forca=5;
     trunfo[22].velocidade=4;
