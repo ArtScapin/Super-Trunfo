@@ -26,31 +26,31 @@ int sorteio_inicial(){                      //  Decide quais dos jogadores inici
     b = (rand()%5)+1;                       //se for 1, o contrário acontece. Já as variáveis a e b representam os
     c = (rand()%2);                         //dedos das mãos dos jogadores 1 e 2 e variam de 1 a 5. A função retorna
     if(c==0){                               //o número referente ao jogador que irá começar.
-            printf("     Jogador 1                                      Jogador 2\n");
-            printf("        PAR                                           IMPAR\n\n");
+            printf("     Jogador 1  \t\t\t\t    Jogador 2\n");
+            printf("\tPAR \t\t\t\t\t      IMPAR\n\n");
     }else{
-            printf("     Jogador 1                                      Jogador 2\n");
-            printf("       IMPAR                                           PAR\n\n");
+            printf("     Jogador 1  \t\t\t\t    Jogador 2\n");
+            printf("       IMPAR\t\t\t\t\t       PAR\n\n");
     }
-                printf("                        %d                %d\n", a, b);
+            printf("\t %d\t\t\t\t\t\t%d\n", a, b);
             if((a+b)%2==0)
-                printf("                               PAR!!\n\n");
+                printf("\t\t\t     PAR!!\n\n");
             else    
-                printf("                              IMPAR!!\n\n");
+                printf("\t\t\t    IMPAR!!\n\n");
     if((a+b)%2==0){
         if(c==0){
-            printf("                       Jogador 1 Comecara!\n");
+            printf("\t\t      Jogador 1 Comecara!\n");
             return 1;
         }else{
-            printf("                       Jogador 2 Comecara!\n");
+            printf("\t\t      Jogador 2 Comecara!\n");
             return 2;
         }
     }else{
         if(c==1){
-            printf("                       Jogador 1 Comecara!\n");
+            printf("\t\t      Jogador 1 Comecara!\n");
             return 2;
         }else{
-            printf("                       Jogador 2 Comecara!\n");
+            printf("\t\t      Jogador 2 Comecara!\n");
             return 1;
         }
     }  
@@ -148,45 +148,40 @@ void sistema(supertrunfo Jogador1[24], supertrunfo Jogador2[24], supertrunfo mes
             fim_mesa=0;
             break;
     }
-    
 }
 
 void tela(supertrunfo Jogador1[24], supertrunfo Jogador2[24], supertrunfo mesa[24], int habilidade, int proximo, int ganhou){
-    printf("     Jogador 1                                      Jogador 2\n");         //Mostra o que esta acontecendo na tela.
+    printf("     Jogador 1  \t\t\t\t    Jogador 2\n");         //Mostra o que esta acontecendo na tela.
     switch(habilidade){
         case 1:
-            printf("                              FORCA\n");;
+            printf("\t\t\t      FORCA\n");;
             break;
         case 2:
-            printf("                            VELOCIDADE\n");
+            printf("\t\t\t    VELOCIDADE\n");
             break;
         case 3:
-            printf("                           INTELIGENCIA\n");
+            printf("\t\t\t   INTELIGENCIA\n");
             break;
     }
-    for (int i = 0; i < 19; i++)
-        printf("%c", Jogador1[0].nome[i]);
-    printf("                            ");
-    for (int i = 0; i < 19; i++)
-        printf("%c", Jogador2[0].nome[i]);
-    printf("\n");
+    printf("%s\t\t\t\t%s\n", Jogador1[0].nome, Jogador2[0].nome);
     if(Jogador1[0].supertrunfo==1 || Jogador2[0].supertrunfo==1){
         if(Jogador1[0].supertrunfo==1)
-            printf("    SUPER-TRUNFO                                 Categoria:      %c\n", Jogador2[0].categoria);
+            printf("    SUPER-TRUNFO     \t\t\t\t  Categoria:      %c  \n", Jogador2[0].categoria);
         else
-            printf(" Categoria:      %c                                  SUPER-TRUNFO\n", Jogador1[0].categoria);
+            printf("  Categoria:      %c  \t\t\t\t    SUPER-TRUNFO     \n", Jogador1[0].categoria);
     }else{
-        printf(" Categoria:      %c                               Categoria:      %c\n", Jogador1[0].categoria, Jogador2[0].categoria);
+        printf("  Categoria:      %c  \t\t\t\t  Categoria:      %c  \n", Jogador1[0].categoria, Jogador2[0].categoria);
     }
-    printf(" Forca:          %d                               Forca:          %d\n", Jogador1[0].forca, Jogador2[0].forca);
-    printf(" Velocidade:     %d                               Velocidade:     %d\n", Jogador1[0].velocidade, Jogador2[0].velocidade);
-    printf(" Inteligencia:   %d                               Inteligencia:   %d\n\n", Jogador1[0].inteligencia, Jogador2[0].inteligencia);
+    
+    printf("  Forca:          %d  \t\t\t\t  Forca:          %d  \n", Jogador1[0].forca, Jogador2[0].forca);
+    printf("  Velocidade:     %d  \t\t\t\t  Velocidade:     %d  \n", Jogador1[0].velocidade, Jogador2[0].velocidade);
+    printf("  Inteligencia:   %d  \t\t\t\t  Inteligencia:   %d  \n\n", Jogador1[0].inteligencia, Jogador2[0].inteligencia);
     if(ganhou==1)
-        printf("                    Jogador 1 Ganhou a rodada!\n");
+        printf("\t\t    Jogador 1 Ganhou a rodada!\n");
     else if(ganhou==2)
-        printf("                    Jogador 2 Ganhou a rodada!\n");
+        printf("\t\t    Jogador 2 Ganhou a rodada!\n");
     else
-        printf("                         Empatou a rodada!\n");
+        printf("\t\t         Empatou a rodada! \n");
     sistema(Jogador1, Jogador2, mesa, ganhou); //Esta função foi colocada aqui pois foi a melhor maneira que eu encontrei para mostrar os dados atualizados.
     printf("\n    Cartas: ");
     if(fim_jogador1<10)
@@ -197,5 +192,5 @@ void tela(supertrunfo Jogador1[24], supertrunfo Jogador2[24], supertrunfo mesa[2
     printf("%d          Cartas: ", fim_mesa);
     if(fim_jogador2<10)
         printf("0");
-    printf("%d    \n", fim_jogador2);
+    printf("%d\n", fim_jogador2);
 }
